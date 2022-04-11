@@ -1,5 +1,5 @@
 ---
-title: Posts
+title: 博文
 cms_exclude: true
 
 # View.
