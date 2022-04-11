@@ -1,0 +1,40 @@
+{{- define "main" -}}
+
+<article class="article">
+
+  {{ partial "page_header" . }}
+
+  <div class="article-container">
+
+    <div class="article-style">
+      {{ .Content }}
+      
+    </div>
+
+    {{ partial "page_footer" . }}
+    {{ if (.Params.gitment) }}
+        <div id="git-comments"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '{{ .Slug }}',  // 可选, 默认为 location.href
+            // id: window.location.pathname,
+            owner: 'ZhenlongMa',
+            repo: 'academic-kickstart',
+            oauth: {
+            client_id: 'ab11d78dde0e5defe2a0',
+            client_secret: 'ec240fb29b9c4521aa2377b74c0575fa18f1260d',
+            }
+        })
+        gitment.render('git-comments')
+        </script>
+        {{ end }}
+
+  </div>
+</article>
+
+
+
+
+{{- end -}}
